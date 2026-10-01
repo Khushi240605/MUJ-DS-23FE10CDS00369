@@ -1,0 +1,20 @@
+[
+  {
+    "name": "health_causal",
+    "text": "Studies show turmeric cures arthritis. Millions of people use it daily, and I think it is the best spice.",
+    "min_claims": 2,
+    "keywords": ["turmeric"]
+  },
+  {
+    "name": "statistics",
+    "text": "Unemployment fell by 40% last year because of the new policy. The government will reach full employment by 2030.",
+    "min_claims": 2,
+    "keywords": ["unemployment"]
+  },
+  {
+    "name": "no_claims",
+    "text": "Good morning! Hope you have a lovely day.",
+    "min_claims": 0,
+    "keywords": []
+  }
+]
