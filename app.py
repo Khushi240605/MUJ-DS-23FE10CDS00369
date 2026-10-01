@@ -6,8 +6,8 @@ from llm_client import analyze
 BADGE = {"unsupported": "🔴 unsupported", "weak": "🟠 weak", "partial": "🟡 partial", "well_supported": "🟢 well supported"}
 
 st.set_page_config(page_title="ClaimLens", layout="wide")
-st.title("🔎 ClaimLens")
-st.subheader("Claim → Evidence Gap Analyzer",anchor=False)
+st.title("🔎 ClaimLens", anchor=False)
+st.subheader("Claim → Evidence Gap Analyzer", anchor=False)
 st.caption("Paste any text. Get each claim, what evidence it needs, and what's missing.")
 
 text = st.text_area("Text to analyze", height=200, placeholder="Paste a news paragraph, post, or essay excerpt...")
@@ -20,7 +20,7 @@ if st.button("Analyze", type="primary"):
         st.error(str(e))
         st.stop()
 
-    st.subheader("Summary")
+    st.subheader("Summary", anchor=False)
     st.write(result.summary)
 
     if not result.claims:
@@ -34,6 +34,8 @@ if st.button("Analyze", type="primary"):
                     "Evidence needed": c.evidence_needed,
                     "Gap in the text": c.gap,
                     "Verdict": BADGE[c.verdict],
+                    "Hidden assumptions": "; ".join(c.hidden_assumptions) or "None",
+                    "Clearer version": c.rewritten_claim,
                 }
                 for c in result.claims
             ]

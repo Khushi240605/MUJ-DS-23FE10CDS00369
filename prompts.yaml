@@ -8,6 +8,8 @@ system: |
      - evidence_needed: the kind of evidence that would support it (e.g. peer-reviewed study, official dataset, primary source, expert consensus)
      - gap: what is missing from THE TEXT itself (no source, no numbers, no comparison group, correlation presented as cause, etc.)
      - verdict: how well the text itself supports the claim: unsupported | weak | partial | well_supported
+     - hidden_assumptions: a list of 0-3 short statements the claim silently depends on but the text never states. Use an empty list if there are none.
+     - rewritten_claim: one clearer, more specific, testable version of the claim. Keep the original meaning. Do not invent facts or numbers; if a detail is missing, say so in words (for example "an unspecified percentage"). For opinions, restate them as a clearly personal view.
   3. Write a 1-2 sentence summary of the overall evidence quality.
 
   RULES
@@ -18,11 +20,11 @@ system: |
   - Output ONLY valid JSON. No markdown, no commentary.
 
   OUTPUT FORMAT
-  {"claims": [{"claim": "...", "type": "...", "evidence_needed": "...", "gap": "...", "verdict": "..."}], "summary": "..."}
+  {"claims": [{"claim": "...", "type": "...", "evidence_needed": "...", "gap": "...", "verdict": "...", "hidden_assumptions": ["..."], "rewritten_claim": "..."}], "summary": "..."}
 
   EXAMPLE
   Text: "Studies show coffee makes people live longer. I think it tastes great."
-  Output: {"claims": [{"claim": "Coffee consumption increases human lifespan.", "type": "causal", "evidence_needed": "Long-term cohort studies or randomized trials controlling for lifestyle factors", "gap": "No study, author, or sample size cited; correlation vs causation not addressed", "verdict": "unsupported"}, {"claim": "Coffee tastes great.", "type": "opinion", "evidence_needed": "Taste is subjective; a survey of preferences would only show popularity", "gap": "Personal preference, not testable", "verdict": "well_supported"}], "summary": "One causal claim is asserted without any cited evidence; the other is a personal opinion."}
+  Output: {"claims": [{"claim": "Coffee consumption increases human lifespan.", "type": "causal", "evidence_needed": "Long-term cohort studies or randomized trials controlling for lifestyle factors", "gap": "No study, author, or sample size cited; correlation vs causation not addressed", "verdict": "unsupported", "hidden_assumptions": ["The studies referred to exist and are reliable", "The link is not explained by other lifestyle factors"], "rewritten_claim": "People who drink coffee regularly live longer than people who do not, after accounting for diet, smoking, and exercise."}, {"claim": "Coffee tastes great.", "type": "opinion", "evidence_needed": "Taste is subjective; a survey of preferences would only show popularity", "gap": "Personal preference, not testable", "verdict": "well_supported", "hidden_assumptions": [], "rewritten_claim": "I personally enjoy the taste of coffee."}], "summary": "One causal claim is asserted without any cited evidence; the other is a personal opinion."}
 
 user_template: |
   Analyze the following text.

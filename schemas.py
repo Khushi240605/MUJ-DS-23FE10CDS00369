@@ -11,6 +11,8 @@ class Claim(BaseModel):
     evidence_needed: str
     gap: str
     verdict: Verdict
+    hidden_assumptions: list[str] = Field(default_factory=list)
+    rewritten_claim: str = ""
 
 
 class Analysis(BaseModel):
