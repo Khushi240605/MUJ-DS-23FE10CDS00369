@@ -47,6 +47,11 @@ streamlit run app.py              # web UI at http://localhost:8501
 python3 eval.py                   # run the sample checks
 ```
 
+## Troubleshooting
+
+- **`pip install` hangs while building `cryptography`:** press Ctrl+C, run `pip install --only-binary=:all: cryptography`, then run `pip install -r requirements.txt` again.
+- **`401 UNAUTHENTICATED` error in the app:** the API key in `.env` is missing or wrong. Make sure the file contains exactly one line, `GEMINI_API_KEY=your_real_key`, with no spaces or quotes, then restart the app.
+
 ## Project structure
 
 ```
