@@ -14,15 +14,20 @@ It also writes a short overall summary of the evidence quality.
 
 ## Example
 
-Input:
-> Studies show turmeric cures arthritis. I think winter is the best season.
+**Input**
+> Studies show turmeric cures arthritis. Unemployment fell by 40% last year because of the new policy. I think winter is the best season.
 
-Output (shortened):
+**Output**
 
-| Claim | Type | Verdict | Hidden assumptions |
-|---|---|---|---|
-| Turmeric cures arthritis. | causal | unsupported | The unspecified studies are reliable |
-| Winter is the best season. | opinion | well supported | None |
+Summary: Two causal claims are asserted without specific evidence, and one claim is a personal opinion.
+
+| Claim | Type | Evidence needed | Gap in the text | Verdict | Hidden assumptions | Clearer version |
+|---|---|---|---|---|---|---|
+| Turmeric cures arthritis. | causal | Peer-reviewed clinical trials | No study, author, or sample size cited | 🔴 unsupported | The referred studies exist and are reliable | Turmeric causes remission of arthritis, according to unspecified studies. |
+| Unemployment fell by 40% last year because of the new policy. | causal | Official unemployment data and analysis linking it to the policy | No source for the 40% figure; no link shown between the policy and the drop | 🟠 weak | The policy was the main cause of the drop | Unemployment fell by an unspecified 40% last year, and the policy caused it. |
+| Winter is the best season. | opinion | Taste is subjective | Personal preference, not testable | 🟢 well supported | None | I personally believe winter is the best season. |
+
+
 
 ## Setup
 
@@ -93,4 +98,4 @@ python3 eval.py                   # run the sample checks
 
 This tool is for analysis and learning. Its output is not a substitute for professional fact-checking.
 
-Author: Khushi
+Author: Jain Khushi Sanjay
