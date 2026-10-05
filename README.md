@@ -8,7 +8,7 @@
 | **Batch** | E | 
 | **Project Title** | ClaimLens: Claim → Evidence Gap Analyzer |
 | **GitHub Username** | Khushi240605 |
-| **Training Program** | <NLP project - DSE4150> |
+| **Training Program** | NLP project - DSE4150|
 
 ## About the project
 
