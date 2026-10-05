@@ -33,3 +33,13 @@ pip install -r requirements.txt
 cp .env.example .env     # add your Gemini API key
 streamlit run app.py
 ```
+
+## Contributions
+
+This project was completed individually by Jain Khushi Sanjay.
+
+- **Dataset and sample texts:** `capstone/samples/samples.json` (issue #1)
+- **Prompt design and LLM client:** `capstone/prompts.yaml`, `capstone/llm_client.py`, `capstone/schemas.py` (issue #2)
+- **Testing:** `capstone/eval.py` and a fresh-clone install check (issue #3)
+- **Documentation:** `README.md` files and setup guide (issue #4)
+- **Frontend:** Streamlit interface in `capstone/app.py` (issue #5)
